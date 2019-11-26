@@ -1,0 +1,14 @@
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    margin-bottom: 163px;
+}
+
+.footer {
+    background: url(http://mallorcabowling.es/wp-content/uploads/2015/03/home_webdesign_pattern2.png);
+    position: absolute;
+    bottom: 0;
+}
