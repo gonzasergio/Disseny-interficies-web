@@ -1,0 +1,57 @@
+body {
+    background-image: url("../img/fondo.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Lobster', cursive;
+}
+
+h3 {
+    display: none;
+}
+
+.abs-center {
+    position: absolute;
+    width: 520px;
+    top: 60%;
+    left: 49%;
+    transform: translate(-50%, -0%);
+}
+
+.btn-blue {
+    color: #801268;
+    font-size: 22px;
+    background-color: #17a2b8;
+    font-family: 'Kanit', sans-serif;
+}
+
+.btn-blue:hover {
+    color: #801268;
+    background-color: #02869B;
+}
+
+@media (max-height: 900px){
+    .abs-center {
+        top: 58%;
+        width: 430px;
+    }
+}
+
+@media (max-height: 715px){
+    .abs-center {
+        width: 340px;
+    }
+
+    h1 {
+        display: none;
+    }
+
+    h3 {
+        display: block;
+    }
+
+    .btn-blue {
+        font-size: 19px;
+    }
+}

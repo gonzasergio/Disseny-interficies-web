@@ -1,0 +1,324 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/40bb3d9f69.js"></script>
+    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
+    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css" media="all">
+    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css" media="all">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="../img/logo.png">
+    <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+</head>
+<body>
+
+<!-- HEADER -->
+
+<header class="container-fluid sticky">
+    <div class="row bg-dark py-2">
+        <div class="col text-right">
+            <div class="dropdown">
+                <a class="btn btn-link text-light dropdown-toggle text-decoration-none" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 38px, 0px);">
+                    <a id="misReservas" class="dropdown-item" href="misReservas.html"><i class="fas fa-list-alt"></i> Mis reservas</a>
+                    <a id="editar" class="dropdown-item" href="editarUsuario.html"><i class="fas fa-user-cog"></i> Editar</a>
+                    <a class="dropdown-item" href=""><i class="fas fa-sign-in-alt"></i> Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- MENU -->
+
+<nav class="navbar navbar-light navbar-expand-md bg-light p-2 shadow-sm sticky-top sticky-nav">
+    <a class="navbar-brand" href="inicio.html">
+        <img src="../img/logo.png" class="rounded mr-2 float-left" alt="" height="50px">
+        <h1 class="text-warning">Bowling</h1>
+    </a>
+    <button class="navbar-toggler ml-5" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="h5 collapse navbar-collapse mt-2 ml-5" id="navbarNav">
+        <ul class="navbar-nav ml-3">
+            <li id="home" class="nav-item">
+                <a class="nav-link" href="inicio.html">Home</a>
+            </li>
+            <li id="pistas" class="nav-item active">
+                <a class="nav-link" href="pistas.html">Pistas</a>
+            </li>
+            <li id="ofertas" class="nav-item">
+                <a class="nav-link" href="ofertas.html">Ofertas</a>
+            </li>
+            <li id="bar" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Bar
+                </a>
+                <div class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
+                    <a id="comida" class="dropdown-item" href="comida.html">Comida</a>
+                    <div class="dropdown-divider"></div>
+                    <a id="bebida" class="dropdown-item" href="bebida.html">Bebida</a>
+                </div>
+            </li>
+            <li id="hazteSocio" class="nav-item">
+                <a class="nav-link" href="hazteSocio.html">Hazte Socio</a>
+            </li>
+            <li id="horarios" class="nav-item">
+                <a class="nav-link" href="horarios.html">Horarios</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- CONTENIDO -->
+
+<main class="p-5">
+    <div class="mb-3">
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="date" class="mr-2">Fecha:  </label>
+                <input type="date" id="date" class="form-control" name="trip-start" min="2019-01-01" max="2020-12-31">
+            </div>
+        </form>
+    </div>
+    <div class="table-responsive">
+        <table class="table text-center">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Pista 1</th>
+                    <th scope="col">Pista 2</th>
+                    <th scope="col">Pista 3</th>
+                    <th scope="col">Pista 4</th>
+                    <th scope="col">Pista 5</th>
+                    <th scope="col">Pista 6</th>
+                    <th scope="col">Pista 7</th>
+                    <th scope="col">Pista 8</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row" class="bg-light">14:00</th>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="bg-light">15:00</th>
+                    <td class="text-success">Libre</td>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="bg-light">16:00</th>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-danger">Ocupada</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="bg-light">17:00</th>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-success">Libre</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="bg-light">18:00</th>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="bg-light">19:00</th>
+                    <td class="text-success">Libre</td>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-danger">Ocupada</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="bg-light">20:00</th>
+                    <td class="text-success">Libre</td>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="bg-light">21:00</th>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-success">Libre</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="bg-light">22:00</th>
+                    <td class="text-success">Libre</td>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-danger">Ocupada</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="bg-light">23:00</th>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-danger">Ocupada</td>
+                    <td class="text-success">Libre</td>
+                    <td class="text-success">Libre</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="d-flex justify-content-end mt-2">
+        <button type="button" id="reservar" class="btn btn-success">Reservar</button>
+    </div>
+
+    <!-- MODAL -->
+
+    <div id="modalReserva" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <!-- header modal -->
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Reserva Pista</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <!-- body modal -->
+
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row form-group">
+                            <div class="col-2">
+                                <label> Nº pista:</label>
+                                <input class="form-control" type="text" readonly="readonly" id="pista" placeholder="0">
+                            </div>
+                            <div class="col-5">
+                                <label> Fecha:</label>
+                                <input class="form-control" type="text" readonly="readonly" id="fecha" placeholder="00/00/0000">
+                            </div>
+                            <div class="col-5">
+                                <label> Hora:</label>
+                                <input class="form-control" type="text" readonly="readonly" id="hora" placeholder="00:00">
+                            </div>
+                        </div>
+                        <div class="form-row form-group">
+                            <div class="col-9">
+                                <label> Nombre:</label>
+                                <input class="form-control" type="text" id="nombre" placeholder="Nombre">
+                            </div>
+                            <div class="col-3">
+                                <label> Nº personas:</label>
+                                <input class="form-control" type="text" id="personas" placeholder="0">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- footer modal -->
+
+                <div class="modal-footer">
+                    <button id="submitInsertIn" type="button" class="btn btn-info">Confirmar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+    $(document).ready(function () {
+        $("#reservar").click(function () {
+            $("#modalReserva").modal();
+        });
+    });
+</script>
+
+<!-- FOOTER -->
+
+<footer class="container-fluid footer">
+    <div class="row py-4 px-2 text-white text-center text-sm-left">
+        <div class="col-sm-6 col-md-3">
+            <h6 class="text-warning">CONTACTANOS</h6>
+            <ul class="list-unstyled">
+                <li class="small"><i class="fa fa-angle-double-right"></i><a class="text-white text-decoration-none font-weight-bold" href="#">hello@mallorcabowling.es</a></li>
+                <li class="small"><i class="fa fa-angle-double-right"></i><a class="text-white text-decoration-none font-weight-bold" href="#">events@mallorcabowling.es</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <h6 class="text-warning">LOCALIZACION</h6>
+            <ul class="list-unstyled">
+                <li class="small">Mallorca Bowling</li>
+                <li class="small">Camí dels Reis, 211 Polígono Can Valero, Palma</li>
+            </ul>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <h6 class="text-warning">GANA PARTIDAS GRATIS</h6>
+            <ul class="list-unstyled">
+                <li class="small">Descárgate <a class="text-white text-decoration-none font-weight-bold" href="#">nuetra APP</a> y sabrás como!</li>
+            </ul>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <h6 class="text-warning">REDES SOCIALES</h6>
+            <ul class="list-unstyled">
+                <li><a class="text-white text-decoration-none font-weight-bold" href="#"><i class="fab fa-instagram"></i><span class="small">&nbsp;&nbsp;Instagram</span></a></li>
+                <li><a class="text-white text-decoration-none font-weight-bold" href="#"><i class="fab fa-facebook"></i><span class="small">&nbsp;&nbsp;Facebook</span></a></li>
+                <li><a class="text-white text-decoration-none font-weight-bold" href="#"><i class="fab fa-twitter"></i><span class="small">&nbsp;&nbsp;Twitter</span></a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

@@ -4,8 +4,15 @@ html {
 }
 
 body {
-    margin-bottom: 124px;
+    margin-bottom: 163px;
+    font-family: 'Kanit', sans-serif;
 }
+
+td {
+    font-weight: bold;
+}
+
+/* MENU */
 
 .sticky {
     z-index: 2;
@@ -15,8 +22,80 @@ body {
     z-index: 1;
 }
 
+/* FORM INICIO Y REGISTRO*/
+
+form {
+    margin-bottom: 0px;
+}
+
+.register {
+    width: 512px;
+}
+
+/* CARROUSEL */
+
+.img1 {
+    background-image: url("../img/fondo.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.img2 {
+    background-image: url("../img/fondo2.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.carrousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    height: 100%;
+}
+
+/* BOTONES */
+
+.btn-blue {
+    color: #fff!important;
+    border-color: #17a2b8!important;
+    background-color: #17a2b8!important;
+}
+
+/* FOOTER */
+
 .footer {
     background: url(http://mallorcabowling.es/wp-content/uploads/2015/03/home_webdesign_pattern2.png);
     position: absolute;
     bottom: 0;
+}
+
+/* MEDIA QUERYS */
+
+@media (max-width: 575px){
+    .register {
+        width: 304px;
+    }
+}
+
+@media (max-width: 768px){
+    body {
+        margin-bottom: 244px;
+    }
+}
+
+@media (max-width: 618px){
+    body {
+        margin-bottom: 263px;
+    }
+}
+
+@media (max-width: 576px){
+    body {
+        margin-bottom: 387px;
+    }
 }

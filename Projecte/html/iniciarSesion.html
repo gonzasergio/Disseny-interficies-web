@@ -1,0 +1,145 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/40bb3d9f69.js"></script>
+    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
+    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css" media="all">
+    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css" media="all">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="../img/logo.png">
+    <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/global.css">
+</head>
+<body>
+<header class="container-fluid sticky">
+    <div class="row bg-dark py-2">
+        <div class="col text-right">
+            <div class="d-none d-md-block">
+                <a href="iniciarSesion.html" class="btn btn-sm btn-light rounded">
+                    Iniciar Sesión	</a>
+                <a href="hazteSocio.html" class="ml-2 btn btn-sm btn-outline-light rounded">
+                    Hazte Socio	</a>
+            </div>
+
+            <div class="d-block d-md-none">
+                <div class="dropdown">
+                    <a class="btn btn-link text-light dropdown-toggle text-decoration-none" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user" aria-hidden="true"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 38px, 0px);">
+                        <a class="dropdown-item" href="iniciarSesion.html"><i class="fas fa-sign-in-alt" aria-hidden="true"></i> Iniciar Sesión</a>
+                        <a class="dropdown-item" href="hazteSocio.html"><i class="far fa-id-card" aria-hidden="true"></i> Hazte Socio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<nav class="navbar navbar-light navbar-expand-md bg-light p-2 shadow-sm sticky-top sticky-nav">
+    <a class="navbar-brand" href="inicio.html">
+        <img src="../img/logo.png" class="rounded mr-2 float-left" alt="" height="50px">
+        <h1 class="text-warning">Bowling</h1>
+    </a>
+    <button class="navbar-toggler ml-5" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="h5 collapse navbar-collapse mt-2 ml-5" id="navbarNav">
+        <ul class="navbar-nav ml-3">
+            <li id="home" class="nav-item">
+                <a class="nav-link" href="inicio.html">Home</a>
+            </li>
+            <li id="pistas" class="nav-item">
+                <a class="nav-link" href="pistas.html">Pistas</a>
+            </li>
+            <li id="ofertas" class="nav-item">
+                <a class="nav-link" href="ofertas.html">Ofertas</a>
+            </li>
+            <li id="bar" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Bar
+                </a>
+                <div class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
+                    <a id="comida" class="dropdown-item" href="comida.html">Comida</a>
+                    <div class="dropdown-divider"></div>
+                    <a id="bebida" class="dropdown-item" href="bebida.html">Bebida</a>
+                </div>
+            </li>
+            <li id="hazteSocio" class="nav-item">
+                <a class="nav-link" href="hazteSocio.html">Hazte Socio</a>
+            </li>
+            <li id="horarios" class="nav-item">
+                <a class="nav-link" href="horarios.html">Horarios</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<main class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="card shadow-sm mt-5" style="width: 18rem;">
+            <h5 class="card-header"><i class="fas fa-sign-in-alt"></i>  Iniciar sesión</h5>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="text" class="form-control" id="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="pass">Contraseña:</label>
+                        <input type="password" class="form-control" id="pass" placeholder="Contraseña">
+                    </div>
+                    <button type="button" id="enviar" class="btn btn-blue btn-block rounded mt-4">Enviar<i class="fas fa-angle-right"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center mt-2">
+        <p>¿Ha olvidado su contraseña? Pulse <a href="hazteSocio.html">aquí</a></p>
+    </div>
+</main>
+<footer class="container-fluid footer">
+    <div class="row py-4 px-2 text-white text-center text-sm-left">
+        <div class="col-sm-6 col-md-3">
+            <h6 class="text-warning">CONTACTANOS</h6>
+            <ul class="list-unstyled">
+                <li class="small"><i class="fa fa-angle-double-right"></i><a class="text-white text-decoration-none font-weight-bold" href="#">hello@mallorcabowling.es</a></li>
+                <li class="small"><i class="fa fa-angle-double-right"></i><a class="text-white text-decoration-none font-weight-bold" href="#">events@mallorcabowling.es</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <h6 class="text-warning">LOCALIZACION</h6>
+            <ul class="list-unstyled">
+                <li class="small">Mallorca Bowling</li>
+                <li class="small">Camí dels Reis, 211 Polígono Can Valero, Palma</li>
+            </ul>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <h6 class="text-warning">GANA PARTIDAS GRATIS</h6>
+            <ul class="list-unstyled">
+                <li class="small">Descárgate <a class="text-white text-decoration-none font-weight-bold" href="#">nuetra APP</a> y sabrás como!</li>
+            </ul>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <h6 class="text-warning">REDES SOCIALES</h6>
+            <ul class="list-unstyled">
+                <li><a class="text-white text-decoration-none font-weight-bold" href="#"><i class="fab fa-instagram"></i><span class="small">&nbsp;&nbsp;Instagram</span></a></li>
+                <li><a class="text-white text-decoration-none font-weight-bold" href="#"><i class="fab fa-facebook"></i><span class="small">&nbsp;&nbsp;Facebook</span></a></li>
+                <li><a class="text-white text-decoration-none font-weight-bold" href="#"><i class="fab fa-twitter"></i><span class="small">&nbsp;&nbsp;Twitter</span></a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<script>
+    $(document).ready(function () {
+        $("#enviar").click(function () {
+            window.location = "inicio.html";
+        });
+    });
+</script>
+</body>
+</html>
