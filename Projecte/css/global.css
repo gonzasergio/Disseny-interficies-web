@@ -34,6 +34,18 @@ form {
 
 /* CARROUSEL */
 
+#carouselExampleIndicators .carousel-item::before {
+    content: '';
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
 .img1 {
     background-image: url("../img/fondo.jpg");
     height: 100%;
@@ -51,14 +63,23 @@ form {
 }
 
 .carrousel-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    width: 400px;
+    top: 70%;
+    left: 49%;
+    transform: translate(-50%, -50%);
     color: #fff;
-    height: 100%;
+    text-align: center;
+    font-family: 'Lobster', cursive;
 }
 
 /* BOTONES */
+
+.list-group-item.active {
+    border-color: #ffc107!important;
+    background-color: #ffc107!important;
+    z-index: 0;
+}
 
 .btn-blue {
     color: #fff!important;
@@ -74,15 +95,19 @@ form {
     bottom: 0;
 }
 
+.enlace {
+    font-size: 15px;
+}
+
 /* MEDIA QUERYS */
 
-@media (max-width: 575px){
-    .register {
-        width: 304px;
+@media (max-height: 521px) and (max-width: 941px) {
+    #carouselExampleIndicators {
+        height: 229px!important;
     }
 }
 
-@media (max-width: 768px){
+@media (max-width: 767px){
     body {
         margin-bottom: 244px;
     }
@@ -94,8 +119,17 @@ form {
     }
 }
 
-@media (max-width: 576px){
+@media (max-width: 575px){
     body {
-        margin-bottom: 387px;
+        margin-bottom: 396px;
+    }
+    .register {
+        width: 304px;
+    }
+    #carouselExampleIndicators {
+        height: 450px!important;
     }
 }
+
+
+
